@@ -1,0 +1,14 @@
+name: Simple Linux Commands
+
+on: [push]
+
+jobs:
+  demo:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Run simple linux commands
+        run: |
+          pwd
+          ls
+          whoami
