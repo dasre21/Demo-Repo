@@ -6,16 +6,28 @@ on:
 
 jobs:
   build:
+    name: Docker Build Job
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: 📥 Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Build Docker Image
+      - name: 🐳 Docker Version
+        run: docker --version
+
+      - name: 📂 Show Workspace Files
+        run: ls -la
+
+      - name: 🔨 Build Docker Image
         run: |
           docker build -t myapp:latest .
-      - name: List images
+
+      - name: 📦 List Docker Images
         run: docker images
 
-          
+      - name: ▶️ Run Container
+        run: docker run myapp:latest
+
+      - name: ✅ Build Finished
+        run: echo "Docker Image Build Completed Successfully"
